@@ -1,3 +1,5 @@
+import GalleryCard from "@/components/GalleryCard";
+
 const services = [
   {
     title: "Collision Repair",
@@ -61,27 +63,38 @@ const services = [
   },
 ];
 
-const galleryImages = [
-  { alt: "Before and after collision repair", bg: "bg-stone-200" },
-  { alt: "Custom paint job detail", bg: "bg-stone-300" },
-  { alt: "Restored classic car", bg: "bg-stone-200" },
-  { alt: "Frame straightening process", bg: "bg-stone-300" },
-  { alt: "Paint booth finishing", bg: "bg-stone-200" },
-  { alt: "Completed vehicle restoration", bg: "bg-stone-300" },
+const galleryItems = [
+  {
+    title: "Collision Repair",
+    images: ["/gallery/red-wrecked.jpg", "/gallery/red-fixed.jpg", "/gallery/red-wrecked2.jpg", "/gallery/red-fixed2.jpg"],
+  },
+  {
+    title: "Collision Repair",
+    images: ["/gallery/green-wrecked.jpg", "/gallery/green-fixed.jpg", "/gallery/green-wrecked2.jpg", "/gallery/green-fixed2.jpg"],
+  },
+  {
+    title: "Collision Repair",
+    images: ["/gallery/gold-wrecked.jpg", "/gallery/gold-fixed.jpg", "/gallery/gold-wrecked2.jpg", "/gallery/gold-fixed2.jpg"],
+  },
 ];
 
 export default function Home() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative flex min-h-screen items-center bg-gradient-to-br from-rosewood-dark via-rosewood to-rosewood-light pt-16">
-        <div className="absolute inset-0 bg-black/20" />
+      <section className="relative flex min-h-[60vh] items-center pt-24">
+        <img
+          src="/home.png"
+          alt="Rosewood Body Shop"
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+        <div className="absolute inset-0 bg-black/50" />
         <div className="relative z-10 mx-auto max-w-7xl px-6 py-24 lg:px-8">
           <div className="max-w-2xl">
-            <p className="text-sm font-semibold tracking-widest text-warm-gold uppercase">
+            <p className="text-sm font-bold tracking-widest text-white uppercase text-shadow-md">
               Expert Auto Body Repair
             </p>
-            <h1 className="mt-4 text-5xl font-bold leading-tight tracking-tight text-white sm:text-6xl lg:text-7xl">
+            <h1 className="mt-4 text-5xl font-bold leading-tight tracking-tight text-white text-shadow-md sm:text-6xl lg:text-7xl">
               Restoring Your Vehicle to Perfection
             </h1>
             <p className="mt-6 text-lg leading-relaxed text-white/80">
@@ -93,7 +106,7 @@ export default function Home() {
             <div className="mt-10 flex flex-col gap-4 sm:flex-row">
               <a
                 href="#contact"
-                className="rounded-lg bg-warm-gold px-8 py-3.5 text-center text-sm font-semibold text-white transition-colors hover:bg-amber-700"
+                className="rounded-lg bg-rosewood px-8 py-3.5 text-center text-sm font-semibold text-white transition-colors hover:bg-rosewood-dark"
               >
                 Get a Free Estimate
               </a>
@@ -221,16 +234,9 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="mt-16 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {galleryImages.map((image, index) => (
-              <div
-                key={index}
-                className={`${image.bg} flex aspect-[4/3] items-center justify-center rounded-xl`}
-              >
-                <p className="px-4 text-center text-sm font-medium text-stone-500">
-                  {image.alt}
-                </p>
-              </div>
+          <div className="mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {galleryItems.map((item, index) => (
+              <GalleryCard key={index} images={item.images} title={item.title} />
             ))}
           </div>
         </div>
@@ -239,57 +245,70 @@ export default function Home() {
       {/* Contact Section */}
       <section id="contact" className="bg-warm-cream py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="grid grid-cols-1 gap-16 lg:grid-cols-2">
+          {/* Full-width heading */}
+          <div className="mt-16 grid grid-cols-1 gap-16 lg:grid-cols-2">
             <div>
-              <p className="text-sm font-semibold tracking-widest text-rosewood uppercase">
-                Get In Touch
-              </p>
               <h2 className="mt-3 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
                 Request a Free Estimate
               </h2>
-              <p className="mt-6 text-lg leading-relaxed text-warm-gray">
-                Ready to get your vehicle repaired? Contact us for a free
-                estimate. We&apos;ll get you back on the road in no time.
+              <p className="mx-auto mt-4 max-w-2xl text-lg leading-relaxed text-foreground">
+                To provide the most accurate estimate, we require vehicles to be inspected <span className="font-bold text-rosewood">in person at our shop.</span>
               </p>
-
-              <div className="mt-10 space-y-6">
-                <div className="flex items-start gap-4">
-                  <svg className="mt-1 h-5 w-5 flex-shrink-0 text-rosewood" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
-                  </svg>
-                  <div>
-                    <p className="font-semibold text-foreground">Address</p>
-                    <p className="text-warm-gray">123 Main Street, Anytown, USA 12345</p>
-                  </div>
+              <p className="mx-auto mt-4 max-w-2xl text-lg leading-relaxed text-foreground">
+                While photos can show visible damage, they often do not reveal underlying structural or internal issues that may affect the repair process. Seeing the vehicle firsthand allows us to thoroughly assess the damage and give you a clear, reliable estimate. 
+              </p>
+              <p className="mx-auto mt-4 max-w-2xl text-lg leading-relaxed text-foreground">
+                We understand this may be less convenient, but it ensures there are no surprises later in the repair process.
+              </p>
+            </div>
+            <div className="space-y-6">
+              <div className="flex items-start gap-4">
+                <svg className="mt-1 h-5 w-5 flex-shrink-0 text-rosewood" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+                </svg>
+                <div>
+                  <p className="font-semibold text-foreground">Address</p>
+                  <p className="text-warm-gray">844 W 14th St. Eureka, CA 95501</p>
                 </div>
-                <div className="flex items-start gap-4">
-                  <svg className="mt-1 h-5 w-5 flex-shrink-0 text-rosewood" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
-                  </svg>
-                  <div>
-                    <p className="font-semibold text-foreground">Phone</p>
-                    <a href="tel:+15551234567" className="text-warm-gray transition-colors hover:text-rosewood">
-                      (555) 123-4567
-                    </a>
-                  </div>
+              </div>
+              <div className="flex items-start gap-4">
+                <svg className="mt-1 h-5 w-5 flex-shrink-0 text-rosewood" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
+                </svg>
+                <div>
+                  <p className="font-semibold text-foreground">Phone</p>
+                  <a href="tel:+15551234567" className="text-warm-gray transition-colors hover:text-rosewood">
+                    (707) 443-4902
+                  </a>
                 </div>
-                <div className="flex items-start gap-4">
-                  <svg className="mt-1 h-5 w-5 flex-shrink-0 text-rosewood" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                  <div>
-                    <p className="font-semibold text-foreground">Hours</p>
-                    <p className="text-warm-gray">Mon - Fri: 8:00 AM - 6:00 PM</p>
-                    <p className="text-warm-gray">Sat: 9:00 AM - 2:00 PM</p>
-                    <p className="text-warm-gray">Sun: Closed</p>
-                  </div>
+              </div>
+              <div className="flex items-start gap-4">
+                <svg className="mt-1 h-5 w-5 flex-shrink-0 text-rosewood" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <div>
+                  <p className="font-semibold text-foreground">Hours</p>
+                  <p className="text-warm-gray">Mon - Fri: 8:00 AM - 5:00 PM</p>
+                  <p className="text-warm-gray">Sat - Sun: Closed</p>
                 </div>
               </div>
             </div>
+          </div>
 
             {/* Contact Form */}
-            <form className="rounded-2xl bg-white p-8 shadow-sm">
+            <div className="mt-16 text-center">
+              <h3 className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
+                Send Us a Message
+              </h3>
+              <p className="mx-auto mt-4 max-w-2xl text-lg leading-relaxed text-warm-gray">
+                For the quickest response, we recommend calling us directly at <span className="font-bold text-rosewood">(707) 443-4902.</span> You may also send us a message below.
+              </p>
+              <p className="mx-auto mt-2 max-w-2xl text-lg leading-relaxed text-rosewood">
+                *Please note that all repair estimates require an in-person inspection.
+              </p>
+            </div>
+            <form className="mx-auto mt-10 max-w-2xl rounded-2xl bg-white p-8 shadow-sm">
               <div className="space-y-6">
                 <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
                   <div>
@@ -339,7 +358,7 @@ export default function Home() {
                 </div>
                 <div>
                   <label htmlFor="message" className="block text-sm font-medium text-foreground">
-                    Describe the damage or service needed
+                    Enter your message
                   </label>
                   <textarea
                     id="message"
@@ -357,7 +376,6 @@ export default function Home() {
               </div>
             </form>
           </div>
-        </div>
       </section>
     </>
   );

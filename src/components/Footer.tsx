@@ -43,13 +43,13 @@ export default function Footer() {
           <div>
             <h4 className="font-semibold">Contact Info</h4>
             <ul className="mt-3 space-y-2 text-sm text-white/70">
-              <li>123 Main Street, Anytown, USA</li>
+              <li>844 W 14th St. Eureka, CA 95501</li>
               <li>
                 <a
                   href="tel:+15551234567"
                   className="transition-colors hover:text-white"
                 >
-                  (555) 123-4567
+                  (707) 443-4902
                 </a>
               </li>
               <li>
@@ -60,8 +60,8 @@ export default function Footer() {
                   info@rosewoodbodyshop.com
                 </a>
               </li>
-              <li>Mon - Fri: 8:00 AM - 6:00 PM</li>
-              <li>Sat: 9:00 AM - 2:00 PM</li>
+              <li>Mon - Fri: 8:00 AM - 5:00 PM</li>
+              <li>Sat - Sun: Closed</li>
             </ul>
           </div>
         </div>
