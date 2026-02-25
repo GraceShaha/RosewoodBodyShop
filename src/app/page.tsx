@@ -245,8 +245,11 @@ export default function Home() {
       {/* Contact Section */}
       <section id="contact" className="bg-warm-cream py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <p className="text-sm font-semibold tracking-widest text-rosewood uppercase">
+            Contact Us
+          </p>
           {/* Full-width heading */}
-          <div className="mt-16 grid grid-cols-1 gap-16 lg:grid-cols-2">
+          <div className="mt-4 grid grid-cols-1 gap-16 lg:grid-cols-2">
             <div>
               <h2 className="mt-3 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
                 Request a Free Estimate
@@ -294,6 +297,20 @@ export default function Home() {
                 </div>
               </div>
             </div>
+          </div>
+
+          {/* Google Maps */}
+          <div className="mt-12 overflow-hidden rounded-xl">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2978.8!2d-124.1684!3d40.7868!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54d15ed8986c0a7d%3A0x5e8e5e1b1b1b1b1b!2s844%20W%2014th%20St%2C%20Eureka%2C%20CA%2095501!5e0!3m2!1sen!1sus!4v1700000000000"
+              width="100%"
+              height="350"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Rosewood Body Shop Location"
+            />
           </div>
 
             {/* Contact Form */}
